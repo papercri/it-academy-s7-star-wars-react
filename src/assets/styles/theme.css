@@ -1,0 +1,17 @@
+@theme {
+    --color-cris: oklch(0.72 0.11 178);
+    --color-background: #0d0d0d;
+    --color-surface: #1a1a1a;
+    --color-card: #262626;
+    --color-primary: #ffffff;
+    --color-secondary: #c0c0c0;
+    --color-accent: #1976d2;
+    --color-border: #333333;
+
+    --radius-radius: 20px;
+    --font-franklin: "Libre Franklin", sans-serif;
+
+    --spacing-base: 20px;
+    --spacing-header: 80px,
+    --spacing-card: 16px,
+  }

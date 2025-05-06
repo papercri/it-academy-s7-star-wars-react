@@ -1,39 +1,38 @@
+
 import { useEffect, useState } from "react";
+import { fetchStarships } from "../api/FetchStarships";
+import StarshipsCard from "./Card";
+import { Starship } from "../types/Interfaces";
 
 const StarshipsList = () => {
-  const [starships, setStarships] = useState([]);
+
+  const [starships, setStarships] = useState<Starship[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchStarships = async () => {
+    const loadStarships = async () => {
       try {
-        const res = await fetch("https://swapi.py4e.com/api/starships/");
-        const data = await res.json();
-        setStarships(data.results);
-        console.log(data.results);
+        const data = await fetchStarships();
+        setStarships(data);
       } catch (error) {
-        console.error("Error fetching starships:", error);
+        console.error("Error fetching Starships:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchStarships();
+    loadStarships();
   }, []);
 
   if (loading) return <p>Loading...</p>;
 
   return (
-    <ul>
+    <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
       {starships.map((ship) => (
-        <li key={ship.name}>
-          <h2>{ship.name}</h2>
-          <p>Model: {ship.model}</p>
-        </li>
+        <StarshipsCard key={ship.name} name={ship.name} model={ship.model} />
       ))}
-    </ul>
+    </div>
   );
 };
 
 export default StarshipsList;
-
