@@ -1,15 +1,10 @@
+import React from 'react'
+import StarshipsList from '../components/List.tsx'
 
-import Container from '@mui/material/Container';
-import { ArrowRight } from "lucide-react";
-
-
-export default function App() {
+function App() {
   return (
-    <Container maxWidth="xl">
-      <div className="my-4 text-pink-800">
-      <ArrowRight className="w-5 h-5" />
-        hello world
-      </div>
-    </Container>
-  );
+    <div><StarshipsList ></StarshipsList></div>
+  )
 }
+
+export default App
