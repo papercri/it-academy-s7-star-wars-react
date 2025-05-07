@@ -1,4 +1,4 @@
-# React + TypeScript + Vite + Tailwind + Lucide +  google fonts
+# React + TypeScript + Vite + Tailwind + Lucide + Scss + google fonts
 
 
 

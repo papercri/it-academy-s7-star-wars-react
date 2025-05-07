@@ -1,15 +1,13 @@
 
 @use "tailwindcss" as *;
-
+@use "./reset.scss" as *;
 @import "https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap";
-
 
 // ------------------------------
 // HTML Elements
 // ------------------------------
 body {
-  
-  background-color:$color-background;
+  background-color:$background-color;
   font-family: $font-franklin;
   color:$color-primary;
   min-height: 100vh;
@@ -36,21 +34,14 @@ h1 {
     font-size: 2.25rem;      
     font-weight: 600;        
     margin-bottom: 1.25rem;  
-    text-align: center;
   
-    @media (min-width: 768px) {
-      text-align: left;
-    }
   }
   
   h3 {
     font-size: 1.875rem;     
     font-weight: 600;        
     margin-bottom: 1.25rem;  
-    text-align: center;
-    @media (min-width: 768px) {
-      text-align: left;
-    }
+  
   }
   
   h4 {
@@ -83,6 +74,19 @@ h1 {
     margin-right: auto;
     padding-left: 1rem;    
     padding-right: 1rem;
+   
+    &.xs{
+      max-width: $breakpoint-md;  
+    }
+    &.fluid{
+      max-width:100%;
+      padding-left: 0;    
+      padding-right: 0;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
   }
   
   .sticky {
@@ -146,132 +150,3 @@ h1 {
     cursor: pointer;
   }
   
-// ------------------------------
-// Reset
-// ------------------------------
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-button,
-a,
-Link {
-  cursor: pointer;
-  outline: none;
-  text-decoration: none;
-  width: fit-content;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-
-  &::before,
-  &::after {
-    content: "";
-  }
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-input[type="number"].no-spinner::-webkit-outer-spin-button,
-input[type="number"].no-spinner::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}

@@ -1,14 +1,21 @@
 
-    $color-background: #0d0d0d;
-    $color-surface: #1a1a1a;
-    $color-card: #262626;
+$background-color: #0d0d0d;
+    $surface-color: #1a1a1a;
+    $card-background: #262626;
     $color-primary: #ffffff;
     $color-secondary: #c0c0c0;
-    $color-accent: #1976d2;
-    $color-border: #333333;
-    
+    $accent-color: #0066ff;
+    $border-color: #333333;
+    $border-color-dark:rgba(255, 255, 255, 0.1);
+    $text-color: $color-primary;
+    $text-color-secondary: rgba(255, 255, 255, 0.7);
+  
     // Fonts
     $font-franklin: 'Libre Franklin', sans-serif;
+
+    //Sizing
+    $header-height: 90px;
+    $nav-height: 50px;
     
     // Spacing
     $spacing-base: 20px;
@@ -16,11 +23,14 @@
     $spacing-card: 16px;
     
     // Border radius
-    $radius-radius: 20px;
+    $radius: 5px;
     
     // Breakpoints
     $breakpoint-sm: 540px;
     $breakpoint-md: 768px;
     $breakpoint-lg: 1024px;
     $breakpoint-xl: 1280px;
+
+    //Misc
+
 

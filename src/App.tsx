@@ -1,6 +1,6 @@
 
-import Navbar from "./components/navbar/Navbar";
-import StarwarsList from "./components/List";
+import Navbar from "./components/layout/navbar/Navbar";
+import StarwarsList from "./components/layout/list/List";
 
 function App() {
 
@@ -11,5 +11,4 @@ function App() {
     </>
   )
 }
-
 export default App
