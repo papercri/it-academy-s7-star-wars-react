@@ -1,8 +1,11 @@
-
+import Navbar from "../components/layout/navbar/Navbar";
 
 function ErrorPage() {
   return (
-    <div>ErrorPage</div>
+    <>
+    <Navbar></Navbar>
+    <div>page not found</div>
+  </>
   )
 }
 

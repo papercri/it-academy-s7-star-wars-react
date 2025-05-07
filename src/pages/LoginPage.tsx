@@ -1,8 +1,10 @@
-
+import Navbar from "../components/layout/navbar/Navbar";
 
 function LoginPage() {
   return (
-    <div>LoginPage</div>
+    <>
+    <Navbar></Navbar>
+  </>
   )
 }
 

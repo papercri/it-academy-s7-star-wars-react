@@ -1,27 +1,35 @@
 import styles from "./Navbar.module.scss";
 import logo from "../../../assets/images/logo-star-wars.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
       <section className="container fluid">
         <header className={styles.header}>
-       
           <figure className={styles.logo}>
             <img src={logo} alt="Star Wars Logo" />
           </figure>
           <div className={styles.auth}>
-            <a href="/login">Log In</a>
-            <span>//</span>
-            <a href="/signup">Sign Up</a>
+            <Link className={styles.linkA} to="/login">
+              Log In
+            </Link>
+            <span className="text-neutral-600">//</span>
+            <Link className={styles.linkA} to="/register">
+              Sign Up
+            </Link>
           </div>
         </header>
         <nav className={styles.nav}>
           <ul className={styles.menu}>
             <li className={styles.menuItem}>
-             <a>Home</a> 
+            <Link className={styles.linkM} to="/">
+              Home 
+            </Link>
             </li>
             <li className={styles.menuItem}>
-              <a>Starships</a>
+            <Link className={styles.linkM} to="/starships">
+              Starships
+            </Link>
             </li>
           </ul>
         </nav>

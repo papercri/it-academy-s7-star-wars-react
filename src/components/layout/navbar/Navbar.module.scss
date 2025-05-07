@@ -31,7 +31,7 @@
     display: flex;
     gap: 1rem;
     justify-self: self-end;
-    a {
+    .linkA {
       color: $text-color-secondary;
       text-decoration: none;
       text-transform: uppercase;
@@ -73,7 +73,7 @@
     &:last-child{
         border-right: 1px solid $border-color-dark;
     }
-    a {
+    .linkM {
         padding: 0 2rem;
         
         text-decoration: none;

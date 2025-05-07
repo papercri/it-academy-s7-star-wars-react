@@ -24,11 +24,8 @@ body {
 h1 {
     font-size: 2.25rem;   
     font-weight: 700;      
-    margin-bottom: 1rem;    
-    text-align: center;
-    @media (min-width: 768px) { 
-      text-align: left;
-    }
+    margin-bottom: 1.5rem;    
+ 
   }
   h2 {
     font-size: 2.25rem;      
