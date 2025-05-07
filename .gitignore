@@ -12,7 +12,7 @@ node_modules
 vscode
 .sass-cache
 .sass-cache/*
-scss
+
 dist
 dist-ssr
 *.local

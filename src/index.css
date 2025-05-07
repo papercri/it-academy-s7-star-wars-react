@@ -1,7 +1,7 @@
 
 @import "https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap";
 @import "tailwindcss";
-@import './assets/styles/theme.css'; 
+@import "./assets/styles/_variables.scss"; 
 
 /* HTML */
 body {
@@ -20,7 +20,7 @@ h4 {
   @apply text-xl font-medium mb-2 md:text-left text-center;
 }
 button{
-  @apply cursor-pointer transition shadow 
+  @apply cursor-pointer transition shadow flex gap-2 rounded-lg
 }
 
 /* Layout */

@@ -1,0 +1,277 @@
+
+@use "tailwindcss" as *;
+
+@import "https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap";
+
+
+// ------------------------------
+// HTML Elements
+// ------------------------------
+body {
+  
+  background-color:$color-background;
+  font-family: $font-franklin;
+  color:$color-primary;
+  min-height: 100vh;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-rendering: optimizeLegibility;
+  line-height: 1.4rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 2.25rem;   
+    font-weight: 700;      
+    margin-bottom: 1rem;    
+    text-align: center;
+    @media (min-width: 768px) { 
+      text-align: left;
+    }
+  }
+  h2 {
+    font-size: 2.25rem;      
+    font-weight: 600;        
+    margin-bottom: 1.25rem;  
+    text-align: center;
+  
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  
+  h3 {
+    font-size: 1.875rem;     
+    font-weight: 600;        
+    margin-bottom: 1.25rem;  
+    text-align: center;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  
+  h4 {
+    font-size: 1.25rem;      
+    font-weight: 500;        
+    margin-bottom: 0.5rem;   
+    text-align: center;
+  
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  
+  button {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 0.5rem;          
+    border-radius: 0.5rem;  
+  }
+  
+
+// ------------------------------
+// Layout
+// ------------------------------
+.container {
+    max-width: $breakpoint-xl;      
+    margin-left: auto;     
+    margin-right: auto;
+    padding-left: 1rem;    
+    padding-right: 1rem;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+// ------------------------------
+// Modals
+// ------------------------------
+.modal-overlay {
+    position: fixed;
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .modal {
+    background-color: #ffffff;
+    border-radius: var(--radius-radius);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    max-width: 32rem; 
+    width: 100%;
+    padding: 1.5rem;
+    position: relative;
+    text-align: center;
+  }
+  
+  .modal-header {
+    font-size: 1.25rem; 
+    font-weight: 600;   
+    margin-bottom: 1rem;
+  }
+  
+  .modal-body {
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem; 
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 1rem; 
+    right: 1rem;
+    color: #6b7280; 
+  
+    &:hover {
+      color: #374151; 
+    }
+  
+    cursor: pointer;
+  }
+  
+// ------------------------------
+// Reset
+// ------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+button,
+a,
+Link {
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  width: fit-content;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+
+  &::before,
+  &::after {
+    content: "";
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input[type="number"].no-spinner::-webkit-outer-spin-button,
+input[type="number"].no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

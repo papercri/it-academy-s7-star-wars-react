@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { fetchStarships } from "../api/FetchStarships";
-import StarshipsCard from "./Card";
+import StarshipsCard from "./card/Card";
 import { Starship } from "../types/Interfaces";
 
 const StarshipsList = () => {

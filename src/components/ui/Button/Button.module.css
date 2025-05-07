@@ -1,0 +1,38 @@
+.btn {
+    padding: 10px;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+    &:hover{
+        filter: opacity(80%);
+    }
+}
+.primary {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .secondary {
+    background-color: gray;
+    color: black;
+  }
+
+  .sm {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  
+  .md {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  
+  .lg {
+    font-size: 1.2rem;
+    padding: 14px 28px;
+  }
+  
+  .disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
