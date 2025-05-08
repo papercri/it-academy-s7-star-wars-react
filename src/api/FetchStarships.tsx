@@ -1,6 +1,8 @@
-export const fetchStarships = async () => {
-    const res = await fetch("https://swapi.py4e.com/api/starships/");
-    if (!res.ok) throw new Error("Failed to fetch Starships");
+export const fetchStarships = async (page: number = 1) => {
+    const res = await fetch(`https://swapi.py4e.com/api/starships/?page=${page}`);
     const data = await res.json();
-    return data.results;
+    return {
+        next: data.next,
+        results: data.results,
+      };
 };
