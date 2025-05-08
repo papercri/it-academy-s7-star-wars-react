@@ -1,5 +1,5 @@
 import Navbar from "../components/layout/header/Header";
-import StarwarsList from "../components/layout/list/List";
+import StarwarsList from "../components/layout/starshipsList/starshipsList";
 
 function ShipsListPage() {
   return (

@@ -4,10 +4,10 @@ import Navbar from "./navbar/Navbar";
 
 function Header() {
     return (
-      <section className="container fluid wrap">
+      <header className="container fluid wrap">
        <Head />
         <Navbar />
-      </section>
+      </header>
     );
   }
   export default Header;

@@ -1,7 +1,7 @@
-// import styles from "./List.module.scss";
+
 import { useEffect, useState } from "react";
 import { fetchStarships } from "../../../api/FetchStarships";
-import StarshipsCard from "../card/Card";
+import StarshipsCard from "./card/Card";
 import { Starship } from "../../../types/Interfaces";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { Link } from "react-router-dom";
@@ -33,7 +33,7 @@ const StarshipsList = () => {
   }, []);
 
   if (loading) return 
-    <div className="container mx-auto flex justify-center items-center h-screen ">
+    <div className="container mx-auto flex justify-center items-center h-96">
       <ScaleLoader color="#0066ff" height={40} width={4} />
     </div>;
 

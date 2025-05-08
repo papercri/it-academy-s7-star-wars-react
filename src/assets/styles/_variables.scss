@@ -6,12 +6,17 @@
     $color-secondary: #c0c0c0;
     $accent-color: #0066ff;
     $border-color: #333333;
+    $panel-bg: rgba(37, 36, 36, 0.8);
     $border-color-dark:rgba(255, 255, 255, 0.1);
     $text-color: $color-primary;
     $text-color-secondary: rgba(255, 255, 255, 0.7);
   
     // Fonts
     $font-franklin: 'Libre Franklin', sans-serif;
+    $font-base: 16px;
+    $font-l: 18px;
+    $font-xl: 24px;
+    $font-s: 15px;
 
     //Sizing
     $header-height: 90px;
@@ -19,6 +24,10 @@
     
     // Spacing
     $spacing-base: 20px;
+    $spacing-p: 5px;
+    $spacing-s: 15px;
+    $spacing-l: 25px;
+    $spacing-xl: 40px;
     $spacing-header: 80px;
     $spacing-card: 16px;
     
