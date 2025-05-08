@@ -19,7 +19,7 @@
     color: $text-color-secondary;
     align-items: center;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: $font-s;
     letter-spacing: 1px;
     position: relative;
     cursor:pointer;
@@ -29,8 +29,7 @@
         border-right: 1px solid $border-color-dark;
     }
     .link {
-        padding: 0 2rem;
-        
+        padding: 0 $spacing-double;
         text-decoration: none;
         transition: color 0.2s ease;
         height: 100%;
@@ -41,12 +40,10 @@
         color: $text-color;
         border-bottom:2px solid $accent-color;
       }
-    
-    &--active {
+    &:active {
       a {
         color: $text-color;
       }
-      
       &::after {
         content: '';
         position: absolute;

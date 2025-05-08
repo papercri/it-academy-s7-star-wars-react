@@ -32,7 +32,7 @@ function StarshipDetail() {
   if (loading) {
     return (
       <div className="container mx-auto flex justify-center items-center h-96"> 
-        <ScaleLoader color="#0066ff" height={40} width={4} />
+        <ScaleLoader color="#FFE81F" height={40} width={4} />
       </div>
     );
   }

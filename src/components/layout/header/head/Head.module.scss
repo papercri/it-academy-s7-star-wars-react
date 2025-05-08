@@ -5,18 +5,22 @@
     justify-content: space-between;
     align-items: center;
     width:100%;
-    padding: 1rem 2rem;
-    margin: 1rem auto ;
+    padding: $spacing-base $spacing-double;
+    margin: $spacing-base auto ;
     height: $header-height;
     max-width: $breakpoint-xl;
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-sm) {
       justify-content: flex-end;
+    }
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-p $spacing-p;
+      margin: 0 auto
     }
   }
   .logo {
       
       height: auto;
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-sm) {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
@@ -26,11 +30,14 @@
         height: auto;
         max-width: 150px;
         margin:0 auto;
+        @media (max-width: $breakpoint-sm) {
+          max-width: 100px;
+        }
       }
     }
     .auth {
       display: flex;
-      gap: 1rem;
+      gap: $spacing-base;
       justify-self: self-end;
       .link {
         color: $text-color-secondary;
@@ -41,7 +48,6 @@
         transition: color 0.2s ease;
         &:hover {
           color: $text-color;
-          
         }
       }
     }

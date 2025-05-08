@@ -4,32 +4,34 @@
     $card-background: #262626;
     $color-primary: #ffffff;
     $color-secondary: #c0c0c0;
-    $accent-color: #0066ff;
+    $accent-color: #FFE81F;
+    $accent-color-hp: #FFE81F;
     $border-color: #333333;
-    $panel-bg: rgba(37, 36, 36, 0.8);
+    $panel-bg: rgba(37, 36, 36, 0.7);
     $border-color-dark:rgba(255, 255, 255, 0.1);
     $text-color: $color-primary;
     $text-color-secondary: rgba(255, 255, 255, 0.7);
   
     // Fonts
     $font-franklin: 'Libre Franklin', sans-serif;
-    $font-base: 16px;
-    $font-l: 18px;
-    $font-xl: 24px;
-    $font-s: 15px;
+    $font-base: 1rem;     // 16px
+    $font-s: 0.9375rem;   // 15px
+    $font-l: 1.125rem;    // 18px
+    $font-xl: 1.5rem;     // 24px
 
     //Sizing
     $header-height: 90px;
     $nav-height: 50px;
     
     // Spacing
-    $spacing-base: 20px;
-    $spacing-p: 5px;
-    $spacing-s: 15px;
-    $spacing-l: 25px;
-    $spacing-xl: 40px;
-    $spacing-header: 80px;
-    $spacing-card: 16px;
+    $spacing-p: 0.3125rem;       // 5px
+    $spacing-s: 0.9375rem;       // 15px
+    $spacing-base: 1.25rem;      // 20px
+    $spacing-double: $spacing-base * 2; // 40px
+    $spacing-card: 1rem;         // 16px
+    $spacing-l: 1.5625rem;       // 25px
+    $spacing-xl: 2.5rem;         // 40px
+    $spacing-header: 5rem;       // 80px
     
     // Border radius
     $radius: 5px;

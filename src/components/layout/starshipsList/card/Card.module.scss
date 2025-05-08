@@ -2,7 +2,7 @@
 .card {
     background-color:$card-background;
     color: $color-primary;
-    padding: 1.5rem;
+    padding: $spacing-l;
     border-radius: $radius; 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
                 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -15,12 +15,12 @@
     }
     h2{
       text-transform: uppercase;
-      font-size: 1.2rem;
+      font-size: $font-l;
       letter-spacing: 1px;
       margin-bottom: 0.5rem;
     }
     p {
         color: $text-color-secondary;
-        font-size: 0.9rem;    
+        font-size: $font-s;    
       }
   }
