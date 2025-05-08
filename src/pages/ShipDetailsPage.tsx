@@ -1,4 +1,4 @@
-import Navbar from "../components/layout/navbar/Navbar";
+import Navbar from "../components/layout/header/Header";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";

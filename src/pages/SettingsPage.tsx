@@ -1,6 +1,6 @@
 
 import { Navigate } from "react-router-dom";
-import Navbar from "../components/layout/navbar/Navbar";
+import Navbar from "../components/layout/header/Header";
 import {  useState } from "react";
 function SettingsPage() {
 

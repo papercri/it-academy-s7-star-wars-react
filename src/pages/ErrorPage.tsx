@@ -1,4 +1,4 @@
-import Navbar from "../components/layout/navbar/Navbar";
+import Navbar from "../components/layout/header/Header";
 
 function ErrorPage() {
   return (

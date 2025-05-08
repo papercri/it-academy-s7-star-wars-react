@@ -1,4 +1,4 @@
-import Navbar from "../components/layout/navbar/Navbar";
+import Navbar from "../components/layout/header/Header";
 import StarwarsList from "../components/layout/list/List";
 
 function ShipsListPage() {

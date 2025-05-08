@@ -1,50 +1,4 @@
-//Header
 
-.header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width:100%;
-  padding: 1rem 2rem;
-  margin: 1rem auto ;
-  height: $header-height;
-  max-width: $breakpoint-xl;
-  @media (min-width: $breakpoint-md) {
-    justify-content: flex-end;
-  }
-}
-.logo {
-    
-    height: auto;
-    @media (min-width: $breakpoint-md) {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    img {
-      width: 100%;
-      height: auto;
-      max-width: 150px;
-      margin:0 auto;
-    }
-  }
-  .auth {
-    display: flex;
-    gap: 1rem;
-    justify-self: self-end;
-    .linkA {
-      color: $text-color-secondary;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      transition: color 0.2s ease;
-      &:hover {
-        color: $text-color;
-        
-      }
-    }
-  }
 
 //Navigation
 .nav{
@@ -74,7 +28,7 @@
     &:last-child{
         border-right: 1px solid $border-color-dark;
     }
-    .linkM {
+    .link {
         padding: 0 2rem;
         
         text-decoration: none;
