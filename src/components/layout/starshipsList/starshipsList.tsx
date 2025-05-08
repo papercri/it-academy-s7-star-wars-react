@@ -6,6 +6,8 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import { Link } from "react-router-dom";
 import  Button  from "../../ui/Button/Button";
 
+
+// Funcion para obtener el ID de la nave a partir de la URL
 const getStarshipId = (url: string) => {
   const parts = url.split("/").filter(Boolean);
   return parts[parts.length - 1];
@@ -21,24 +23,36 @@ const StarshipsList = () => {
   const loadStarships = async () => {
     try {
       const { next, results } = await fetchStarships(page);
-  
+   
       if (!next) {
         setHasMore(false);
       }
-  
-      setStarships((prev) => [...prev, ...results]);
+  //actualiza el estado de starships sin duplicados (compara las URLs de las naves)
+      setStarships((prev) => {
+        const newShip: Starship[] = results.filter(
+          (newShip: Starship) => !prev.some((existingShip: Starship) => existingShip.url === newShip.url)
+        );
+        return [...prev, ...newShip];
+      });
       setPage((prev) => prev + 1);
     } catch (error) {
       console.error("Error fetching Starships:", error);
     } finally {
       setLoading(false);
       setLoadingMore(false);
+    
     }
   };
 
   useEffect(() => {
     loadStarships();
+    
   }, []);
+
+  useEffect(() => {
+    console.log("Starships loaded:", starships);  
+    // Este log se ejecutará solo cuando el estado cambie
+  }, [starships]);
 
   if (loading && starships.length === 0) {
     return (
@@ -49,7 +63,7 @@ const StarshipsList = () => {
   }
 
   return (
-    <main className="container xs mx-auto px-4 my-6 pb-6">
+    <main className="container xs mx-auto px-4 mb-6 pb-6 pt-6 mtop">
       <div className="grid grid-cols-1  gap-4">
         {starships.map((ship) => {
           const id = getStarshipId(ship.url);

@@ -22,6 +22,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main.mtop{
+  margin-top: 180px;
+  z-index:1;
+  position:relative;
+  @media (max-width: $breakpoint-sm) {
+    margin-top: 140px;
+  }
+}
 h1 {
   @include heading(2.25rem, 700, 1.5rem, 2.8rem);
 }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Head = () => {
     return (
-        <header className={styles.header}>
+        <section className={styles.header}>
           <figure className={styles.logo}>
             <img src={logo} alt="Star Wars Logo" />
           </figure>
@@ -17,7 +17,7 @@ const Head = () => {
               Sign Up
             </Link>
           </div>
-        </header>
+        </section>
     );
 }
 

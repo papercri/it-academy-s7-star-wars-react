@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styles from "./StarshipDetail.module.scss";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
-
+import { fetchStarshipById } from "../../../api/FetchStarshipById"
 function StarshipDetail() {
 
   const { id } = useParams();
@@ -11,23 +12,21 @@ function StarshipDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchShip = async (id: string | undefined) => {
+    const loadStarship = async () => {
       try {
-        const res = await fetch(`https://swapi.py4e.com/api/starships/${id}/`);
-        const data = await res.json();
+        const data = await fetchStarshipById(id);
         setStarship(data);
         console.log(data);
-  
+        
       } catch (error) {
-        console.error("Error fetching starship:", error);
+        console.error("Failed to load starship");
       } finally {
-       
         setLoading(false);
       }
     };
 
-    fetchShip(id);
-  },[]);
+    loadStarship();
+  }, [id]);
 
   if (loading) {
     return (
@@ -37,7 +36,7 @@ function StarshipDetail() {
     );
   }
   return (
-    <main className="container fluid relative h-[80vh]">
+    <main className="container fluid relative h-[80vh] mtop">
         <div className={styles.backgroundImage}></div>
         <div className={styles.starshipDetail}>
             <h1>STARSHIP</h1>

@@ -20,8 +20,9 @@
     $font-xl: 1.5rem;     // 24px
 
     //Sizing
-    $header-height: 90px;
+    $head-height: 90px;
     $nav-height: 50px;
+    $header-height: ($head-height + $nav-height);
     
     // Spacing
     $spacing-p: 0.3125rem;       // 5px

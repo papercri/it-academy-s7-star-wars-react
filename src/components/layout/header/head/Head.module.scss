@@ -7,13 +7,14 @@
     width:100%;
     padding: $spacing-base $spacing-double;
     margin: $spacing-base auto ;
-    height: $header-height;
+    height: $head-height;
     max-width: $breakpoint-xl;
+  
     @media (min-width: $breakpoint-sm) {
       justify-content: flex-end;
     }
     @media (max-width: $breakpoint-sm) {
-      padding: $spacing-p $spacing-p;
+      padding: $spacing-s $spacing-s;
       margin: 0 auto
     }
   }

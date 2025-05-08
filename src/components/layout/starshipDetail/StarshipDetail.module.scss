@@ -34,6 +34,7 @@
         @media (max-width: $breakpoint-sm) {
             width:100%;
             align-self: center;
+            max-width: 90%;
         }
         
     }
@@ -66,8 +67,8 @@
     }
     .specs {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: $spacing-double;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-base;
         margin-top: $spacing-base;
         @media (max-width: $breakpoint-md) {
             grid-template-columns: repeat(1, 1fr);
