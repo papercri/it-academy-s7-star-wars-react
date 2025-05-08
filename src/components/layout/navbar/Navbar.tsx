@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-      <section className="container fluid">
+      <section className="container fluid wrap">
         <header className={styles.header}>
           <figure className={styles.logo}>
             <img src={logo} alt="Star Wars Logo" />

@@ -1,7 +1,7 @@
 
 import { Navigate } from "react-router-dom";
 import Navbar from "../components/layout/navbar/Navbar";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 function SettingsPage() {
 
   const [hasAccess, setHasAccess] = useState(true);

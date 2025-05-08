@@ -79,10 +79,10 @@ h1 {
       max-width:100%;
       padding-left: 0;    
       padding-right: 0;
-      display: flex;
-      align-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      
+    }
+    &.wrap{
+      @apply flex flex-wrap items-center
     }
   }
   
