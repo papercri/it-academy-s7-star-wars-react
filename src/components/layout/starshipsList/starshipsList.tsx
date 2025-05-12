@@ -3,11 +3,13 @@ import { fetchStarships } from "../../../api/FetchStarships";
 import StarshipsCard from "./card/Card";
 import { Starship } from "../../../types/Interfaces";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import { Link } from "react-router-dom";
-import  Button  from "../../ui/Button/Button";
+import { Link, Navigate } from "react-router-dom";
+import Button from "../../ui/Button/Button";
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import appFirebase from "../../../utils/firebase";
 
+const auth = getAuth(appFirebase);
 
-// Funcion para obtener el ID de la nave a partir de la URL
 const getStarshipId = (url: string) => {
   const parts = url.split("/").filter(Boolean);
   return parts[parts.length - 1];
@@ -19,15 +21,26 @@ const StarshipsList = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+  const [showRedirectMessage, setShowRedirectMessage] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setCheckingAuth(false);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const loadStarships = async () => {
     try {
       const { next, results } = await fetchStarships(page);
-   
+
       if (!next) {
         setHasMore(false);
       }
-  //actualiza el estado de starships sin duplicados (compara las URLs de las naves)
+
       setStarships((prev) => {
         const newShip: Starship[] = results.filter(
           (newShip: Starship) => !prev.some((existingShip: Starship) => existingShip.url === newShip.url)
@@ -40,19 +53,45 @@ const StarshipsList = () => {
     } finally {
       setLoading(false);
       setLoadingMore(false);
-    
     }
   };
 
   useEffect(() => {
-    loadStarships();
-    
-  }, []);
+    if (user) {
+      loadStarships();
+    }
+  }, [user]);
 
+  // Mostrar mensaje antes de redirigir
   useEffect(() => {
-    console.log("Starships loaded:", starships);  
-    // Este log se ejecutará solo cuando el estado cambie
-  }, [starships]);
+    if (!checkingAuth && user === null) {
+      setShowRedirectMessage(true);
+      const timer = setTimeout(() => {
+        setShowRedirectMessage(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [checkingAuth, user]);
+
+  if (checkingAuth) {
+    return (
+      <div className="container mx-auto flex justify-center items-center h-96">
+        <ScaleLoader color="#FFE81F" height={40} width={4} />
+      </div>
+    );
+  }
+
+  if (showRedirectMessage) {
+    return (
+      <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
+        Please log in to see the starships...
+      </div>
+    );
+  }
+
+  if (user === null) {
+    return <Navigate to="/login" replace />;
+  }
 
   if (loading && starships.length === 0) {
     return (
@@ -64,7 +103,7 @@ const StarshipsList = () => {
 
   return (
     <main className="container xs mx-auto px-4 mb-6 pb-6 pt-6 mtop">
-      <div className="grid grid-cols-1  gap-4">
+      <div className="grid grid-cols-1 gap-4">
         {starships.map((ship) => {
           const id = getStarshipId(ship.url);
           return (
@@ -76,12 +115,11 @@ const StarshipsList = () => {
       </div>
 
       {hasMore && (
-        <div className="flex justify-center mt-6 ">
-         
+        <div className="flex justify-center mt-6">
           <Button variant="primary" size="md" onClick={() => {
-              setLoadingMore(true);
-              loadStarships();
-            }}>
+            setLoadingMore(true);
+            loadStarships();
+          }}>
             {loadingMore ? "Loading..." : "Show more"}
           </Button>
         </div>

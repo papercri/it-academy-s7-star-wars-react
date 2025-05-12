@@ -1,7 +1,7 @@
 import styles from "./Form.module.scss";
 import { useState } from "react";
 import appFirebase from "../../utils/firebase";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 
 
