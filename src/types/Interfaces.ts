@@ -3,3 +3,9 @@ export interface Starship {
     model: string;
     url: string;
   }
+
+  export interface User {
+    name: string;
+    email: string;
+    password: string;
+  }
