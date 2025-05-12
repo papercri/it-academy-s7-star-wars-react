@@ -1,5 +1,6 @@
 import styles from "./Form.module.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import appFirebase from "../../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
@@ -9,34 +10,35 @@ const auth = getAuth(appFirebase);
 
 function Register() {
 
-  const [registering, setRegistering] = useState(true);
+  const [registering, setRegistering] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate(); // ✅ Hook para redirigir
 
   const authFunction = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrorMessage(""); // Limpiar cualquier mensaje de error previo
+    setErrorMessage("");
 
     try {
       if (registering) {
-        // Registro de usuario
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const db = getDatabase(appFirebase);
         const user = userCredential.user;
 
-        // Guardar el usuario en la base de datos de Firebase Realtime Database
         await set(ref(db, 'users/' + user.uid), {
           email: user.email,
           uid: user.uid,
           createdAt: new Date().toISOString(),
         });
+
+        navigate("/starships"); 
       } else {
-        // Inicio de sesión del usuario
         await signInWithEmailAndPassword(auth, email, password);
+        navigate("/starships"); 
       }
     } catch (error: any) {
-      console.error("Firebase error:", error); // Para que veas el error en consola
+      console.error("Firebase error:", error);
       if (error.code === 'auth/email-already-in-use') {
         setErrorMessage("The email is already in use.");
       } else if (error.code === 'auth/invalid-email') {
@@ -48,7 +50,6 @@ function Register() {
       }
     }
   };
-
   return (
     <main className="container xs mx-auto px-4 mb-6 pb-6 pt-6 mtop">
       <h1>{registering ? "Register" : "Log In"}</h1>
