@@ -1,20 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "./Form.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import appFirebase from "../../utils/firebase";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
 
 const auth = getAuth(appFirebase);
 
-function Register() {
-
+function Auth() {
   const [registering, setRegistering] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate(); // ✅ Hook para redirigir
+  const navigate = useNavigate(); 
 
   const authFunction = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,20 +22,15 @@ function Register() {
     try {
       if (registering) {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const db = getDatabase(appFirebase);
         const user = userCredential.user;
-
-        await set(ref(db, 'users/' + user.uid), {
-          email: user.email,
-          uid: user.uid,
-          createdAt: new Date().toISOString(),
+        await updateProfile(user, {
+          displayName: name,
         });
-
-        navigate("/starships"); 
       } else {
+        // Inicio de sesión
         await signInWithEmailAndPassword(auth, email, password);
-        navigate("/starships"); 
       }
+      navigate("/starships"); // Redirige a la página de las naves después de registro o login
     } catch (error: any) {
       console.error("Firebase error:", error);
       if (error.code === 'auth/email-already-in-use') {
@@ -55,6 +49,20 @@ function Register() {
       <h1>{registering ? "Register" : "Log In"}</h1>
       <div>
         <form className={styles.form} onSubmit={authFunction}>
+          {registering && (
+           <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+        )}
           <div>
             <label htmlFor="email">Email</label>
             <input
@@ -95,4 +103,4 @@ function Register() {
   );
 }
 
-export default Register
+export default Auth

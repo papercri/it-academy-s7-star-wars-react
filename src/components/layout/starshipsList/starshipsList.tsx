@@ -62,7 +62,7 @@ const StarshipsList = () => {
     }
   }, [user]);
 
-  // Mostrar mensaje antes de redirigir
+
   useEffect(() => {
     if (!checkingAuth && user === null) {
       setShowRedirectMessage(true);

@@ -1,7 +1,7 @@
 import styles from "./Head.module.scss";
 import logo from "../../../../assets/images/logo-star-wars.png";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../../../context/AuthContext";
+import { useAuth } from "../../../../context/user.context.tsx";
 import { getAuth, signOut } from 'firebase/auth';
 import appFirebase from "../../../../utils/firebase.ts"
 
@@ -17,7 +17,7 @@ const Head = () => {
 
       {user ? (
         <div className={styles.auth}>
-          <span>Welcome, {user.email}</span>
+          <span className="text-sm bold opacity-80 tracking-wider">Welcome, {user?.displayName}</span>
           <button className={styles.link} onClick={() => signOut(auth)}>
             Log Out
           </button>
@@ -28,7 +28,7 @@ const Head = () => {
             Log In
           </Link>
           <span className="text-neutral-600">//</span>
-          <Link className={styles.link} to="/register">
+          <Link className={styles.link} to="/login">
             Sign Up
           </Link>
         </div>

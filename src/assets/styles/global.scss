@@ -1,7 +1,5 @@
-
 @use "tailwindcss" as *;
 @use "./reset.scss" as *;
-@use "./mixins.scss" as *;
 @import "https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap";
 
 // ------------------------------
@@ -67,8 +65,8 @@ button {
     max-width: $breakpoint-xl;      
     margin-left: auto;     
     margin-right: auto;
-    padding-left: 1rem;    
-    padding-right: 1rem;
+    padding-left: $spacing-base;    
+    padding-right: $spacing-base;
    
     &.xs{
       max-width: $breakpoint-md;  
@@ -89,46 +87,3 @@ button {
     width: 100%;
   }
 
-// ------------------------------
-// Modals
-// ------------------------------
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  @include flex-center;
-  z-index: 50;
-}
-
-.modal {
-  @include modal-box;
-}
-
-.modal-header {
-  @include heading(1.25rem, 600, 1rem);
-}
-
-.modal-body {
-  color: #374151;
-  margin-bottom: 1rem;
-}
-  
-  .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem; 
-  }
-  
-  .modal-close {
-    position: absolute;
-    top: 1rem; 
-    right: 1rem;
-    color: #6b7280; 
-  
-    &:hover {
-      color: #374151; 
-    }
-  
-    cursor: pointer;
-  }
-  

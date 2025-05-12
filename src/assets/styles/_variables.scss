@@ -1,4 +1,6 @@
+
 //colores
+
     $background-color: #0d0d0d;
     $surface-color: #1a1a1a;
     $card-background: #262626;
@@ -7,6 +9,8 @@
     $accent-color: #FFE81F;
     $accent-color-hp: #FFE81F;
     $border-color: #333333;
+    $input-color:#2c2f33;
+    $placeholder-color:#999;
     $panel-bg: rgba(37, 36, 36, 0.7);
     $border-color-dark:rgba(255, 255, 255, 0.1);
     $text-color: $color-primary;
@@ -33,7 +37,7 @@
     $spacing-l: 1.5625rem;       // 25px
     $spacing-xl: 2.5rem;         // 40px
     $spacing-header: 5rem;       // 80px
-    
+    $input-padding: 0.75rem;
     // Border radius
     $radius: 5px;
     
