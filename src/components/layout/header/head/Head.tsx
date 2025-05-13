@@ -19,7 +19,7 @@ const Head = () => {
 
       {user ? (
         <div className={styles.auth}>
-          <span className="text-sm bold opacity-80 tracking-wider">Welcome, {user?.displayName}</span>
+          <span className="text-sm bold opacity-80 tracking-wider">Welcome, <span className="capitalize">{user?.displayName}</span></span>
           <button className={styles.link} onClick={() => signOut(auth)}>
             Log Out
           </button>

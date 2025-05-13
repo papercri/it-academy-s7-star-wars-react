@@ -1,12 +1,12 @@
 
 import Navbar from "../components/layout/header/Header";
-import Register from "../components/form/Auth";
+import SignIn from "../components/auth/SignIn.tsx";
 
 function LogInPage() {
   return (
     <>
     <Navbar></Navbar>
-    <Register></Register>
+    <SignIn></SignIn>
   </>
   )
 }
