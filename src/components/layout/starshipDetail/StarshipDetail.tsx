@@ -1,37 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import styles from "./StarshipDetail.module.scss";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useStarshipDetail } from "../../../hooks/useStarshipDetail";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import { fetchStarshipById } from "../../../api/FetchStarshipById"
+
 function StarshipDetail() {
-
-  const { id } = useParams();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [starship, setStarship] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadStarship = async () => {
-      try {
-        const data = await fetchStarshipById(id);
-        setStarship(data);
-        console.log(data);
-        
-      } catch (error) {
-        console.error("Failed to load starship");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadStarship();
-  }, [id]);
+  const { id } = useParams<{ id: string }>();
+  const { starship, loading } = useStarshipDetail(id);
 
   if (loading) {
     return (
-      <div className="container mx-auto flex justify-center items-center h-96"> 
+      <div className="container mx-auto flex justify-center items-center h-96">
         <ScaleLoader color="#FFE81F" height={40} width={4} />
+      </div>
+    );
+  }
+
+  if (!starship) {
+    return (
+      <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
+        Starship not found.
       </div>
     );
   }
