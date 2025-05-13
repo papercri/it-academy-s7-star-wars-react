@@ -5,6 +5,7 @@ import appFirebase from "../utils/firebase";
 
 type UserContextType = {
   user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>; 
 };
 interface UserProviderProps {
   children: ReactNode;
@@ -23,7 +24,7 @@ function UserProvider(props: UserProviderProps) {
   }, [auth]);
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {props.children}
     </UserContext.Provider>
   );

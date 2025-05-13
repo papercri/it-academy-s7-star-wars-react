@@ -12,7 +12,9 @@ const Head = () => {
   return (
     <section className={styles.header}>
       <figure className={styles.logo}>
-        <img src={logo} alt="Star Wars Logo" />
+        <Link to="/">
+          <img src={logo} alt="Star Wars Logo" />
+        </Link>
       </figure>
 
       {user ? (

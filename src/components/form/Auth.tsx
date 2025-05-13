@@ -4,10 +4,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import appFirebase from "../../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
+import { useAuth } from "../../context/user.context";
 
-const auth = getAuth(appFirebase);
 
 function Auth() {
+  const auth = getAuth(appFirebase);
+  const { setUser } = useAuth(); 
   const [registering, setRegistering] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,9 +28,11 @@ function Auth() {
         await updateProfile(user, {
           displayName: name,
         });
+        setUser(user); // Actualiza el contexto con el nuevo usuario
       } else {
         // Inicio de sesión
-        await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        setUser(userCredential.user); // <-- lo guardas en el contexto
       }
       navigate("/starships"); // Redirige a la página de las naves después de registro o login
     } catch (error: any) {
