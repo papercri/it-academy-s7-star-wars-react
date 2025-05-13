@@ -5,10 +5,7 @@ import { Starship } from "../../../types/Interfaces";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { Link, Navigate } from "react-router-dom";
 import Button from "../../ui/Button/Button";
-import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
-import appFirebase from "../../../utils/firebase";
-
-const auth = getAuth(appFirebase);
+import { useAuth } from "../../../context/user.context";
 
 const getStarshipId = (url: string) => {
   const parts = url.split("/").filter(Boolean);
@@ -16,22 +13,12 @@ const getStarshipId = (url: string) => {
 };
 
 const StarshipsList = () => {
+  const { user } = useAuth();
   const [starships, setStarships] = useState<Starship[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [user, setUser] = useState<FirebaseUser | null>(null);
-  const [checkingAuth, setCheckingAuth] = useState(true);
-  const [showRedirectMessage, setShowRedirectMessage] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser);
-      setCheckingAuth(false);
-    });
-    return () => unsubscribe();
-  }, []);
 
   const loadStarships = async () => {
     try {
@@ -62,18 +49,17 @@ const StarshipsList = () => {
     }
   }, [user]);
 
+  if (!user) {
+    return (
+       <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
+        Please log in to see the starships...
+          <Navigate to="/login" replace />
+      </div>
 
-  useEffect(() => {
-    if (!checkingAuth && user === null) {
-      setShowRedirectMessage(true);
-      const timer = setTimeout(() => {
-        setShowRedirectMessage(false);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [checkingAuth, user]);
+    );
+  }
 
-  if (checkingAuth) {
+  if (loading && starships.length === 0) {
     return (
       <div className="container mx-auto flex justify-center items-center h-96">
         <ScaleLoader color="#FFE81F" height={40} width={4} />
@@ -81,17 +67,7 @@ const StarshipsList = () => {
     );
   }
 
-  if (showRedirectMessage) {
-    return (
-      <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
-        Please log in to see the starships...
-      </div>
-    );
-  }
 
-  if (user === null) {
-    return <Navigate to="/login" replace />;
-  }
 
   if (loading && starships.length === 0) {
     return (
