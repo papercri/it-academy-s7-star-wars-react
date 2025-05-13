@@ -5,13 +5,13 @@ import clsx from "clsx";
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "accent" | "danger";
   size?: "sm" | "md" | "lg";
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
   icon?: ReactNode;
   onClick?: () => void;
 }
-
 
 const Button = ({
   children,

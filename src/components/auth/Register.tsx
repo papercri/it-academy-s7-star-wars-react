@@ -1,10 +1,13 @@
-// components/auth/Register.tsx
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from "./Auth.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import appFirebase from "../../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from "../../context/user.context";
+import  Input  from "../ui/Input/Input";
+import Button from "../ui/Button/Button";
+import { useAuthErrorMessage } from "../../hooks/useAuthErrorMessage";
 
 function Register() {
   const auth = getAuth(appFirebase);
@@ -14,6 +17,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const { getErrorMessage } = useAuthErrorMessage();
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,45 +32,57 @@ function Register() {
 
       navigate("/starships");
     } catch (error: any) {
-      console.error("Register error:", error);
-      if (error.code === "auth/email-already-in-use") {
-        setErrorMessage("The email is already in use.");
-      } else if (error.code === "auth/invalid-email") {
-        setErrorMessage("Invalid email format.");
-      } else if (error.code === "auth/weak-password") {
-        setErrorMessage("Password should be at least 6 characters.");
-      } else {
-        setErrorMessage(error.message);
-      }
+      console.error("Login error:", error);
+      setErrorMessage(getErrorMessage(error.code));
     }
   };
 
   return (
     <main className="container xs mx-auto px-4 mb-6 pb-6 pt-6 mtop">
       <h1>Register</h1>
-      <form className={styles.form} onSubmit={handleRegister}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
-        </div>
+      <form className={styles.form} onSubmit={handleRegister} noValidate>
+        <Input
+          label="Name"
+          name="name"
+          type="name"
+          value={name}
+          placeholder="Your name"
+          onChange={(e) => setName(e.target.value)}
+          required
+      
+        />
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          value={email}
+          placeholder="Your email"
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          error={errorMessage.includes("email") ? errorMessage : ""}
+        />
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
+         <Input
+          label="Password"
+          name="password"
+          type="password"
+          value={password}
+          placeholder="Your password"
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          error={errorMessage.includes("password") ? errorMessage : ""}
+        />
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-        <button type="submit">Sign Up</button>
+         <Button variant="accent" size="md" type="submit">
+           Sign Up
+          </Button>
       </form>
 
       <p className="mt-5 text-left ml-2 font-bold">
-        Already have an account? <a href="/login" className={styles.link}>Log In</a>
+        Already have an account? <a href="/login" className={styles.link}>Sign In</a>
       </p>
     </main>
   );
