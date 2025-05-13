@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import { fetchStarships } from "../../../api/FetchStarships";
+import { useStarships } from "../../../hooks/useStarships";
 import StarshipsCard from "./card/Card";
-import { Starship } from "../../../types/Interfaces";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { Link, Navigate } from "react-router-dom";
 import Button from "../../ui/Button/Button";
@@ -14,60 +12,22 @@ const getStarshipId = (url: string) => {
 
 const StarshipsList = () => {
   const { user } = useAuth();
-  const [starships, setStarships] = useState<Starship[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const [loadingMore, setLoadingMore] = useState(false);
-
-  const loadStarships = async () => {
-    try {
-      const { next, results } = await fetchStarships(page);
-
-      if (!next) {
-        setHasMore(false);
-      }
-
-      setStarships((prev) => {
-        const newShip: Starship[] = results.filter(
-          (newShip: Starship) => !prev.some((existingShip: Starship) => existingShip.url === newShip.url)
-        );
-        return [...prev, ...newShip];
-      });
-      setPage((prev) => prev + 1);
-    } catch (error) {
-      console.error("Error fetching Starships:", error);
-    } finally {
-      setLoading(false);
-      setLoadingMore(false);
-    }
-  };
-
-  useEffect(() => {
-    if (user) {
-      loadStarships();
-    }
-  }, [user]);
+  const {
+    starships,
+    loading,
+    loadingMore,
+    hasMore,
+    loadMore
+  } = useStarships();
 
   if (!user) {
     return (
-       <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
+      <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
         Please log in to see the starships...
-          <Navigate to="/login" replace />
-      </div>
-
-    );
-  }
-
-  if (loading && starships.length === 0) {
-    return (
-      <div className="container mx-auto flex justify-center items-center h-96">
-        <ScaleLoader color="#FFE81F" height={40} width={4} />
+        <Navigate to="/login" replace />
       </div>
     );
   }
-
-
 
   if (loading && starships.length === 0) {
     return (
@@ -92,10 +52,7 @@ const StarshipsList = () => {
 
       {hasMore && (
         <div className="flex justify-center mt-6">
-          <Button variant="primary" size="md" onClick={() => {
-            setLoadingMore(true);
-            loadStarships();
-          }}>
+          <Button variant="primary" size="md" onClick={loadMore}>
             {loadingMore ? "Loading..." : "Show more"}
           </Button>
         </div>

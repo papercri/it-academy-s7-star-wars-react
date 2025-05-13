@@ -9,7 +9,6 @@ import  Input  from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
 import { useAuthErrorMessage } from "../../hooks/useAuthErrorMessage";
 
-
 function SignIn() {
   const auth = getAuth(appFirebase);
   const { setUser } = useAuth(); 
@@ -58,9 +57,7 @@ function SignIn() {
           required
           error={errorMessage.includes("password") ? errorMessage : ""}
         />
-
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-        
           <Button variant="accent" size="md" type="submit">
            Sign In
           </Button>
