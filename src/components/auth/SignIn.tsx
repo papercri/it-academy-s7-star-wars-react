@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import styles from "./Auth.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import appFirebase from "../../utils/firebase";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, FirebaseError } from "firebase/auth";
 import { useAuth } from "../../context/user.context";
 import  Input  from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
@@ -26,7 +26,7 @@ function SignIn() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setUser(userCredential.user);
       navigate("/starships");
-    } catch (error: any) {
+    } catch (error: FirebaseError) {
       console.error("Login error:", error);
       setErrorMessage(getErrorMessage(error.code));
     }

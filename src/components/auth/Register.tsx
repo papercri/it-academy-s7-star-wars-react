@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import styles from "./Auth.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import appFirebase from "../../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from "../../context/user.context";
-import  Input  from "../ui/Input/Input";
-import Button from "../ui/Button/Button";
+import  Input  from "../ui/Input/Input.tsx";
+import Button from "../ui/Button/Button.tsx";
 import { useAuthErrorMessage } from "../../hooks/useAuthErrorMessage";
 
 function Register() {
@@ -31,9 +31,14 @@ function Register() {
       setUser(user);
 
       navigate("/starships");
-    } catch (error: any) {
-      console.error("Login error:", error);
-      setErrorMessage(getErrorMessage(error.code));
+    } catch (error: unknown) {
+      if (error instanceof Error && 'code' in error) {
+        console.error("Login error:", error);
+        setErrorMessage(getErrorMessage((error as { code: string }).code));
+      } else {
+        console.error("Unexpected error:", error);
+        setErrorMessage("An unexpected error occurred.");
+      }
     }
   };
 
