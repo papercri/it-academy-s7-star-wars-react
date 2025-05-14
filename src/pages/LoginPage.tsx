@@ -1,5 +1,5 @@
 
-import Navbar from "../components/layout/header/Header";
+import Navbar from "../components/layout/header/Header.tsx";
 import SignIn from "../components/auth/SignIn.tsx";
 
 function LogInPage() {
