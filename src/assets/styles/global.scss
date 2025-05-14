@@ -20,14 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main.mtop{
-  margin-top: 180px;
-  z-index:1;
-  position:relative;
-  @media (max-width: $breakpoint-sm) {
-    margin-top: 140px;
-  }
-}
+
 h1 {
   @include heading(2.25rem, 700, 1.5rem, 2.8rem);
 }
@@ -47,14 +40,6 @@ h4 {
   @media (min-width: 768px) {
     text-align: left;
   }
-}
-button {
-  cursor: pointer;
-  @include transition;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  display: flex;
-  gap: 0.5rem;
-  border-radius: 0.5rem;
 }
   
 
@@ -87,3 +72,11 @@ button {
     width: 100%;
   }
 
+  main.mtop{
+    margin-top: 180px;
+    z-index:1;
+    position:relative;
+    @media (max-width: $breakpoint-sm) {
+      margin-top: 140px;
+    }
+  }

@@ -5,8 +5,8 @@ import clsx from "clsx";
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "accent" | "danger";
-  size?: "sm" | "md" | "lg";
+  variant?: "primary" | "secondary" | "accent" | "danger" | "home";
+  size?: "sm" | "md" | "lg" | "xl";
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   icon?: ReactNode;
@@ -35,6 +35,5 @@ const Button = ({
     </button>
   );
 };
-
 
 export default Button;  

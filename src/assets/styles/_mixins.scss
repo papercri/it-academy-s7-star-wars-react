@@ -1,22 +1,9 @@
 // mixins.scss
-@mixin heading($size, $weight, $mb, $lh: normal) {
+  @mixin heading($size, $weight, $mb, $lh: normal) {
     font-size: $size;
     font-weight: $weight;
     margin-bottom: $mb;
     line-height: $lh;
-  }
-  
-  @mixin modal-box {
-    background-color: #c0c0c0;
-    border-radius: 15px;
-    box-shadow:
-      0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    max-width: 32rem;
-    width: 100%;
-    padding: 1.5rem;
-    position: relative;
-    text-align: center;
   }
   
   @mixin flex-center {
@@ -26,9 +13,9 @@
   }
   
   @mixin transition {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
   
-@mixin soft-box-shadow {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
+  @mixin soft-box-shadow {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }

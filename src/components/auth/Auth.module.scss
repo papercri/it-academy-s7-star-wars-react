@@ -5,7 +5,6 @@
     width: 100%;
     max-width: 400px;
     @include soft-box-shadow;
-    
     div {
       margin-bottom: $spacing-l;
       label {
@@ -14,33 +13,6 @@
         font-weight: bold;
         color:  $accent-color;
       }
-      input  {
-        width: 100%;
-        padding: $input-padding;
-        border: none;
-        border-radius: $radius;
-        background-color: $input-color;
-        color: #ffffff;
-        &::placeholder {
-          color: $placeholder-color;
-        }
-      
-      }
-    }
-
-    button {
-      width: 100%;
-      padding: $input-padding;
-      background-color:  $accent-color;
-      color: #000;
-      border: none;
-      border-radius:$radius;
-      font-weight: bold;
-      cursor: pointer;
-      @include transition;
-      &:hover {
-        background-color:  $accent-color;
-      }
     }
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
@@ -48,10 +20,15 @@
     input:-internal-autofill-selected {
       -webkit-box-shadow: 0 0 0px 1000px $input-color inset;
       -webkit-text-fill-color: #ffffff;
-      transition: background-color 5000s ease-in-out 0s;
-      background-color:  $accent-color;
+      transition: none;
+      background-color:  transparent;
+    }
+    input:focus-visible, input:focus{
+      border: 0;
+      outline: 1px solid $accent-color;
     }
   }
+
   .link{
     color: $accent-color;
     display: inline;

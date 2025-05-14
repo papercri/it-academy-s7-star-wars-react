@@ -1,5 +1,5 @@
 
-//colores
+//colors
 
     $background-color: #0d0d0d;
     $surface-color: #1a1a1a;
@@ -17,19 +17,19 @@
     $text-color: $color-primary;
     $text-color-secondary: rgba(255, 255, 255, 0.7);
   
-    // Fonts
+// Fonts
     $font-franklin: 'Libre Franklin', sans-serif;
     $font-base: 1rem;     // 16px
     $font-s: 0.9375rem;   // 15px
     $font-l: 1.125rem;    // 18px
     $font-xl: 1.5rem;     // 24px
 
-    //Sizing
+//Sizing
     $head-height: 90px;
     $nav-height: 50px;
     $header-height: ($head-height + $nav-height);
     
-    // Spacing
+// Spacing
     $spacing-p: 0.3125rem;       // 5px
     $spacing-s: 0.9375rem;       // 15px
     $spacing-base: 1.25rem;      // 20px
@@ -39,15 +39,15 @@
     $spacing-xl: 2.5rem;         // 40px
     $spacing-header: 5rem;       // 80px
     $input-padding: 0.75rem;
-    // Border radius
+
+// Border radius
     $radius: 5px;
     
-    // Breakpoints
+// Breakpoints
     $breakpoint-sm: 540px;
     $breakpoint-md: 768px;
     $breakpoint-lg: 1024px;
     $breakpoint-xl: 1280px;
 
-    //Misc
 
 

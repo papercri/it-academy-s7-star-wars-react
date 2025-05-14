@@ -36,25 +36,7 @@
       color: $accent-color-hp;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
-    .cta-button {
-      background-color: transparent;
-      color: $accent-color-hp;
-      border: 2px solid $accent-color-hp;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-weight: bold;
-    }
-    
-    .cta-button:hover {
-      background-color: $accent-color-hp;
-      color: #000;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px $accent-hower-shadow;
-    }
+ 
     @media (max-width: 768px) {
       .logo {
         max-width: 200px;
@@ -63,10 +45,7 @@
       h1 {
         font-size: 1.8rem;
       }
-      .cta-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-      }
+
     }
   }
   
