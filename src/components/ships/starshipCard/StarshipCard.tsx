@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import styles from "./StarshipDetail.module.scss";
+import styles from "./StarshipCard.module.scss";
 import { useParams } from "react-router-dom";
-import { useStarshipDetail } from "../../../hooks/useStarshipDetail";
+import { useStarshipCard } from "../../../hooks/useStarshipCard";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { StarshipDetails } from "../shipsPilots/StarshipDetails";
 
-function StarshipDetail() {
+function StarshipCard() {
   const { id } = useParams<{ id: string }>();
-  const { starship, loading } = useStarshipDetail(id);
+  const { starship, loading } = useStarshipCard(id);
 
   if (loading) {
     return (
@@ -69,8 +70,10 @@ function StarshipDetail() {
                 </div>
                 </div>
             </div>
+             <StarshipDetails id={id} />
         </div>
+       
     </main>
   )
 }
-export default StarshipDetail
+export default StarshipCard

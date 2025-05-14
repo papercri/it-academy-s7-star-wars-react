@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchStarshipById } from "../api/FetchStarshipById";
 import { Starship } from "../types/Interfaces";
 
-export const useStarshipDetail = (id: string | undefined) => {
+export const useStarshipCard = (id: string | undefined) => {
   const [starship, setStarship] = useState<Starship | null>(null);
   const [loading, setLoading] = useState(true);
 
