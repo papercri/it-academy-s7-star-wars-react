@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const filmImages: Record<string, string> = {
   "A New Hope": "/images/films/a-new-hope.jpg",
   "The Empire Strikes Back": "/images/films/empire-strikes-back.jpg",
   "Return of the Jedi": "/images/films/return-of-the-jedi.jpg",
- 
+  "The Phantom Menace": "/images/films/The-Phantom-Menace.jpg",
+  "Attack of the Clones": "/images/films/Attack-of-the-Clones.jpg",
+  "Revenge of the Sith": "/images/films/Revenge-of-the-Sith.jpg",
 };
 
 export const FilmsList = ({ films }: { films: any[] }) => (
