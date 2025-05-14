@@ -38,26 +38,22 @@
     }
     .auth {
       display: flex;
-      gap: $spacing-s;
+      gap: $spacing-p;
+      flex-direction: column;
+      align-items: flex-end;
       justify-self: self-end;
       max-height: 70px;
-      @media (max-width: $breakpoint-md) {
-        gap: $spacing-p;
-        flex-direction: column;
-        align-items: flex-end;
-      }
       .wname{
-        
+        color:$accent-color;
         max-width: 300px;
         overflow: hidden;
         font-size: $font-s;        
-        font-weight: 700;           
+        font-weight: 600;      
         letter-spacing: 0.05em;     
         white-space: nowrap;   
         
         @media (max-width: $breakpoint-sm) {
           text-align: right;
-          font-weight: 600;
           font-size:$font-base;
         }
       }

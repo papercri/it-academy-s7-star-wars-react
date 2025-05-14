@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from "./StarshipDetails.module.scss";
-
 import { useEffect, useState } from "react";
 import { fetchStarshipDetails } from "../../../api/FetchStarshipDetails";
 import { PilotsList } from "./PilotsList";

@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import styles from "./StarshipDetails.module.scss";
+
+
 const filmImages: Record<string, string> = {
   "A New Hope": "/images/films/a-new-hope.jpg",
   "The Empire Strikes Back": "/images/films/empire-strikes-back.jpg",
@@ -7,14 +10,26 @@ const filmImages: Record<string, string> = {
   "Attack of the Clones": "/images/films/Attack-of-the-Clones.jpg",
   "Revenge of the Sith": "/images/films/Revenge-of-the-Sith.jpg",
 };
+const fallbackImages = [
+   "/images/films/Revenge-of-the-Sith.jpg",
+  "/images/films/Attack-of-the-Clones.jpg",
+  "/images/films/The-Phantom-Menace.jpg"
+];
+
+const getFilmImage = (name: string): string => {
+  return filmImages[name] || fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
+};
 
 export const FilmsList = ({ films }: { films: any[] }) => (
-  <div>
-    <h2 className="text-xl font-bold tracking-wide mt-6 mb-2">Films</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <section className="mt-10">
+    <h2 className="detailsTitle">Films</h2>
+       <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 content-center mt-6">
       {films.map((film) => (
-        <div key={film.title} className="bg-black rounded-md overflow-hidden text-center shadow">
-          <img src={filmImages[film.title]} alt={film.title} className="w-full h-60 object-cover" />
+        <div key={film.title} className="bg-black rounded-md overflow-hidden mx-auto shadow text-center">
+          <img 
+          src={getFilmImage(film.title)} 
+          alt={film.title} 
+          className="max-w-full h-48 object-scale-down w-[200px] mb-2"/>
           <div className="p-2 text-white text-sm tracking-wider whitespace-nowrap">
             <div className="uppercase">{film.title}</div>
             <div>Episode {film.episode_id}</div>
@@ -22,5 +37,5 @@ export const FilmsList = ({ films }: { films: any[] }) => (
         </div>
       ))}
     </div>
-  </div>
+  </section>
 );

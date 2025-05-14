@@ -3,7 +3,7 @@ import styles from "./StarshipCard.module.scss";
 import { useParams } from "react-router-dom";
 import { useStarshipCard } from "../../../hooks/useStarshipCard";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import { StarshipDetails } from "../shipsPilots/StarshipDetails";
+import { StarshipDetails } from "../starShipsDetails/StarshipDetails";
 
 function StarshipCard() {
   const { id } = useParams<{ id: string }>();
@@ -28,12 +28,12 @@ function StarshipCard() {
     <main className="container fluid relative h-[80vh] mtop">
         <div className={styles.backgroundImage}></div>
         <div className={styles.starshipDetail}>
-            <h1>STARSHIP</h1>
+            <h2 className="detailsTitle">STARSHIP</h2>
             
             <div className={styles.starshipContent}>
         
                 <div className={styles.shipDetails}>
-                    <h2>{starship.name}</h2>
+                    <h1>{starship.name}</h1>
                     <h3>Manufacturer:</h3>
                     <p>{starship.manufacturer}</p>
                 
