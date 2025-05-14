@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import appFirebase from "../../utils/firebase";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from "../../context/user.context";
-import Input  from "../ui/Input/Input.tsx";
+import Input from "../ui/Input/Input.tsx";
 import Button from "../ui/Button/Button.tsx";
 import { useAuthErrorMessage } from "../../hooks/useAuthErrorMessage";
 

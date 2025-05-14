@@ -1,12 +1,10 @@
-
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ShipsListPage from "./pages/ShipsListPage";
-import LogInPage from "./pages/LogInPage.tsx";
 import RegisterPage from "./pages/RegisterPage";
 import ShipDetailsPage from "./pages/ShipDetailsPage";
 import ErrorPage from "./pages/ErrorPage";
-
+import LogInPage from "./pages/LogInPage";
 
 function App() {
 
