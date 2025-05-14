@@ -52,7 +52,7 @@ function Register() {
           type="name"
           value={name}
           placeholder="Your name"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>)  => setName(e.target.value)}
           required
       
         />
@@ -63,7 +63,7 @@ function Register() {
           type="email"
           value={email}
           placeholder="Your email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>)  => setEmail(e.target.value)}
           required
           error={errorMessage.includes("email") ? errorMessage : ""}
         />
@@ -74,7 +74,7 @@ function Register() {
           type="password"
           value={password}
           placeholder="Your password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>)  => setPassword(e.target.value)}
           required
           error={errorMessage.includes("password") ? errorMessage : ""}
         />
