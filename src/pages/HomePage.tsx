@@ -7,7 +7,7 @@ function HomePage() {
     
     <main className="homePage">
       <div className="content">
-        <img src="../../src/assets/images/sw-logo-home.png" alt="Star Wars Logo" className="logo" />
+        <img src="images/sw-logo-home.png" alt="Star Wars Logo" className="logo" />
         <h1>Discover the galaxy far, far away</h1>
         <Link to="/starships">
          <Button variant="home" size="xl" type="submit">
