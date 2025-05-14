@@ -5,12 +5,16 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  @apply antialiased
 }
 
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  text-rendering: optimizeLegibility;
+  @apply antialiased
 }
 button,
 a,

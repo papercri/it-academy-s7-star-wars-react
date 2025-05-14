@@ -38,17 +38,47 @@
     }
     .auth {
       display: flex;
-      gap: $spacing-base;
+      gap: $spacing-s;
       justify-self: self-end;
+      max-height: 70px;
+      @media (max-width: $breakpoint-md) {
+        gap: $spacing-p;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .wname{
+        
+        max-width: 300px;
+        overflow: hidden;
+        font-size: $font-s;        
+        font-weight: 700;           
+        letter-spacing: 0.05em;     
+        white-space: nowrap;   
+        
+        @media (max-width: $breakpoint-sm) {
+          text-align: right;
+          font-weight: 600;
+          font-size:$font-base;
+        }
+      }
       .link {
         color: $text-color-secondary;
         text-decoration: none;
         text-transform: uppercase;
-        font-size: 0.8rem;
+        font-size: $font-s;
         letter-spacing: 1px;
         transition: color 0.2s ease;
+        font-weight: 600;
+        white-space: nowrap;
         &:hover {
           color: $text-color;
         }
+        @media (max-width: $breakpoint-sm) {
+            text-align: right;
+            font-weight: 600;
+            margin-top: 2px;
+            font-size: $font-base;
+          }
+        
       }
     }

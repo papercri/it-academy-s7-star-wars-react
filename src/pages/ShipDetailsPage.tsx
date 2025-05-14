@@ -1,5 +1,5 @@
 import Navbar from "../components/layout/header/Header";
-import StarshipDetail from "../components/layout/starshipDetail/StarshipDetail";
+import StarshipDetail from "../components/ships/starshipDetail/StarshipDetail";
 
 function ShipDetailsPage() {
   

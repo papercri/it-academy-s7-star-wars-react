@@ -23,14 +23,23 @@ body {
 
 h1 {
   @include heading(2.25rem, 700, 1.5rem, 2.8rem);
+    @media (max-width: 768px) {
+      @include heading(1.8rem, 700, 1rem, 1.8rem);
+    }
 }
 
 h2 {
   @include heading(2.25rem, 600, 1.25rem);
+    @media (max-width: 768px) {
+      @include heading(1.7rem, 700, 1rem, 1.7rem);
+    }
 }
 
 h3 {
   @include heading(1.875rem, 600, 1.25rem);
+    @media (max-width: 768px) {
+      @include heading(1.6rem, 700, 1rem, 1.6rem);
+    }
 }
 
 h4 {
@@ -53,8 +62,11 @@ h4 {
     padding-left: $spacing-base;    
     padding-right: $spacing-base;
    
-    &.xs{
+    &.md{
       max-width: $breakpoint-md;  
+    }
+    &.xs{
+      max-width: $breakpoint-sm;  
     }
     &.fluid{
       max-width:100%;
@@ -73,7 +85,7 @@ h4 {
   }
 
   main.mtop{
-    margin-top: 180px;
+    margin-top: 200px;
     z-index:1;
     position:relative;
     @media (max-width: $breakpoint-sm) {
