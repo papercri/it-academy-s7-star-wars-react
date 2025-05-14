@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
-import styles from "./StarshipDetails.module.scss";
+
+// import styles from "./StarshipDetails.module.scss";
 const pilotImages: Record<string, string> = {
 
   "Biggs Darklighter": "/images/pilots/Biggs-Darklighter.jpg",
@@ -31,7 +31,11 @@ const getPilotImage = (name: string): string => {
   return pilotImages[name] || fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
 };
 
-export const PilotsList = ({ pilots }: { pilots: any[] }) => (
+interface Pilot {
+  name: string;
+}
+
+export const PilotsList = ({ pilots }: { pilots: Pilot[] }) => (
   <section className="mt-6">
    <h2 className="detailsTitle">PILOTS</h2>
     <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 content-center mt-6">

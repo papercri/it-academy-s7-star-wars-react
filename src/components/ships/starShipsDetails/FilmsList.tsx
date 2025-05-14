@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import styles from "./StarshipDetails.module.scss";
+
+// import styles from "./StarshipDetails.module.scss";
 
 
 const filmImages: Record<string, string> = {
@@ -20,7 +20,12 @@ const getFilmImage = (name: string): string => {
   return filmImages[name] || fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
 };
 
-export const FilmsList = ({ films }: { films: any[] }) => (
+interface Film {
+  title: string;
+  episode_id: number;
+}
+
+export const FilmsList = ({ films }: { films: Film[] }) => (
     <section className="mt-10">
     <h2 className="detailsTitle">Films</h2>
        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 content-center mt-6">
