@@ -8,48 +8,6 @@ StarWars Starships Explorer is a responsive React web app to explore starships f
 
 ---
 
-## ✨ Features
-
-- 🔐 **Authentication** with Firebase (email/password)
-- 🌌 **Starships Listing** from SWAPI
-- 🎬 **Films** associated with starships
-- 👨‍🚀 **Pilots** listing with images
-- 🔎 **"Show more"** pagination to load more ships
-- 📱 **Responsive design**, dark-themed with Star Wars aesthetics
-- ⚙️ **React Context API** for user session management
-
----
-
-## 📷 Screenshots
-
-### Home
-
-![Home](/public/images/screenshots/home.png)
-
-
-### Sign In
-
-![Sign In](/public/images/screenshots/signin.png)
-
-### Sign Up
-
-![Sign Up](/public/images/screenshots/signup.png)
-
-### Starships List
-
-![Starships List](/public/images/screenshots/starships.png)
-
-### Starship Page
-
-![Starships Page](/public/images/screenshots/card.png)
-
-### Pilots and Films
-
-![Pilots and Films](/public/images/screenshots/pilotsAndFilms.png)
-
-
----
-
 ## 🛠️ Tech Stack
 
 - React + Vite
@@ -116,3 +74,44 @@ src/
 ---
 
 
+## ✨ Features
+
+- 🔐 **Authentication** with Firebase (email/password)
+- 🌌 **Starships Listing** from SWAPI
+- 🎬 **Films** associated with starships
+- 👨‍🚀 **Pilots** listing with images
+- 🔎 **"Show more"** pagination to load more ships
+- 📱 **Responsive design**, dark-themed with Star Wars aesthetics
+- ⚙️ **React Context API** for user session management
+
+---
+
+## 📷 Screenshots
+
+### Home
+
+![Home](/public/images/screenshots/home.png)
+
+
+### Sign In
+
+![Sign In](/public/images/screenshots/signin.png)
+
+### Sign Up
+
+![Sign Up](/public/images/screenshots/signup.png)
+
+### Starships List
+
+![Starships List](/public/images/screenshots/starships.png)
+
+### Starship Page
+
+![Starships Page](/public/images/screenshots/card.png)
+
+### Pilots and Films
+
+![Pilots and Films](/public/images/screenshots/pilotsAndFilms.png)
+
+
+---
