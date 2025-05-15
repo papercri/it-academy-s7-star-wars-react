@@ -24,28 +24,28 @@ StarWars Starships Explorer is a responsive React web app to explore starships f
 
 ### Home
 
-![Home](/images/home.png)
+![Home](/public/images/screenshots/home.png)
 
 
 ### Sign In
 
-![Sign In](/images/signin.png)
+![Sign In](/public/images/screenshots/signin.png)
 
 ### Sign Up
 
-![Sign Up](/images/signup.png)
+![Sign Up](/public/images/screenshots/signup.png)
 
 ### Starships List
 
-![Starships List](/images/starships.png)
+![Starships List](/public/images/screenshots/starships.png)
 
 ### Starship Page
 
-![Starships Page](/images/card.png)
+![Starships Page](/public/images/screenshots/card.png)
 
 ### Pilots and Films
 
-![Pilots and Films](/images/pilotsAndFilms.png)
+![Pilots and Films](/public/images/screenshots/pilotsAndFilms.png)
 
 
 ---

@@ -67,9 +67,9 @@ function SignIn() {
           </Button>
         </form>
         <p className="mt-5 text-left ml-2 font-bold">
-          Don't have an account? 
+          Don't have an account? &nbsp;
           <a href="/register" className={styles.link}>
-          Sign Up
+           Sign Up
           </a>
         </p>
       </div>
