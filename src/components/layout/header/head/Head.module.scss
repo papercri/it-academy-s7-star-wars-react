@@ -38,8 +38,7 @@
     }
     .auth {
       display: flex;
-      gap: $spacing-p;
-      flex-direction: column;
+      gap: $spacing-s;
       align-items: flex-end;
       justify-self: self-end;
       max-height: 70px;
@@ -51,12 +50,14 @@
         font-weight: 600;      
         letter-spacing: 0.05em;     
         white-space: nowrap;   
-        
-        @media (max-width: $breakpoint-sm) {
+    
+      }
+       @media (max-width: $breakpoint-md) {
           text-align: right;
           font-size:$font-base;
+          flex-direction: column;
+          gap: $spacing-p;
         }
-      }
       .link {
         color: $text-color-secondary;
         text-decoration: none;

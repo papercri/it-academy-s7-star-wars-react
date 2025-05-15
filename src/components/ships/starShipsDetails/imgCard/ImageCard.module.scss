@@ -1,0 +1,30 @@
+.imageCard{
+    background-color: $panel-bg;
+    border-radius: $radius; 
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: $spacing-s; 
+     
+    .image{
+        max-width: 100%;              
+        height: 12rem;               
+        object-fit:cover;   
+        object-position: top;    
+        width:180px;  
+        height:270px;             
+        margin-bottom: 0.5rem;  
+        border-radius: $radius; 
+        @include soft-box-shadow  
+    }
+
+    .label{
+        padding: $spacing-p;            
+        color:  $text-color-secondary;               
+        font-size: $font-xs;  
+        font-weight:600 ;        
+        letter-spacing: 0.05em;        
+       
+    }
+}

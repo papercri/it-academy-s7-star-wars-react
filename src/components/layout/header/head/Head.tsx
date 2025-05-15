@@ -1,5 +1,5 @@
 import styles from "./Head.module.scss";
-import logo from "../../../../assets/images/logo-star-wars.png";
+import logo from "/images/logo-star-wars.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../../context/user.context.tsx";
 import { getAuth, signOut } from 'firebase/auth';
