@@ -32,11 +32,12 @@
 }
 
 .error {
-  border-color: #ff4d4f !important;
+  border-color: $error-message !important;
 }
 
 .errorText {
-  color: #ff4d4f;
+  color: $error-message;
   margin-top: 0.25rem;
   font-size: 0.85rem;
+  font-weight: 600;
 }
