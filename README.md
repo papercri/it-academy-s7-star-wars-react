@@ -46,6 +46,44 @@ npm run dev
 
 ---
 
+## 🔐 Firebase Setup
+
+To configure Firebase for this project:
+
+1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com).
+2. In the project settings, go to **Project Overview > Web > Add App** to register your web app and get the Firebase config.
+3. In your project root, create a `.env` file with the following content (replace with your own values):
+
+```
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_DATABASE_URL=your_database_url
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+4. In `src/firebase.ts`, set up Firebase using the environment variables:
+
+```ts
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
+
+const appFirebase = initializeApp(firebaseConfig);
+export default appFirebase;
+```
+
+---
 ## 📁 Project Structure
 
 ```
