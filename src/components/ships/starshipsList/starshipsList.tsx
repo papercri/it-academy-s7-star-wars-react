@@ -1,9 +1,9 @@
 import { useStarships } from "../../../hooks/useStarships";
 import StarshipsCard from "./card/Card";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../../ui/Button/Button";
-import { useAuth } from "../../../context/user.context";
+// import { useAuth } from "../../../context/user.context";
 
 const getStarshipId = (url: string) => {
   const parts = url.split("/").filter(Boolean);
@@ -11,7 +11,7 @@ const getStarshipId = (url: string) => {
 };
 
 const StarshipsList = () => {
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const {
     starships,
     loading,
@@ -20,14 +20,14 @@ const StarshipsList = () => {
     loadMore
   } = useStarships();
 
-  if (!user) {
-    return (
-      <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
-        Please log in to see the starships...
-        <Navigate to="/login" replace />
-      </div>
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <div className="container mx-auto flex justify-center items-center h-96 text-yellow-400 text-xl">
+  //       Please log in to see the starships...
+  //       <Navigate to="/login" replace />
+  //     </div>
+  //   );
+  // }
 
   if (loading && starships.length === 0) {
     return (

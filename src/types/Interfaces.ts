@@ -1,5 +1,5 @@
 export interface Starship {
-     name: string;
+    name: string;
     model: string;
     manufacturer: string;
     cost_in_credits: string;
@@ -8,6 +8,9 @@ export interface Starship {
     crew: string;
     passengers: string;
     url: string;
+    pilots: string[];
+    films: string[];
+
   }
 
   export interface User {

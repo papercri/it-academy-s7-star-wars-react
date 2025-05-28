@@ -1,16 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
-import { fetchStarshipDetails } from "../../../api/FetchStarshipDetails";
+import { useParams } from "react-router-dom";
+import { fetchStarshipDetails } from "../../../services/FetchStarshipDetails";
 import { PilotsList } from "./PilotsList";
 import { FilmsList } from "./FilmsList";
 
-export const StarshipDetails = ({ id }: { id: string | undefined }) => {
+export const StarshipDetails = () => {
+  const { id } = useParams<{ id: string }>();
   const [starship, setStarship] = useState<any>(null);
 
   useEffect(() => {
-    fetchStarshipDetails(id).then(setStarship);
+    if (id) {
+      fetchStarshipDetails(id).then(setStarship);
+    }
   }, [id]);
-
   if (!starship) return null;
 
   return (

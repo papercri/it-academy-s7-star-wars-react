@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { fetchStarships } from "../api/FetchStarships";
+import { fetchStarships } from "../services/FetchStarships";
 import { Starship } from "../types/Interfaces";
 
 export const useStarships = () => {

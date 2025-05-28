@@ -70,7 +70,7 @@ function StarshipCard() {
                 </div>
                 </div>
             </div>
-             <StarshipDetails id={id} />
+             <StarshipDetails  />
         </div>
        
     </main>

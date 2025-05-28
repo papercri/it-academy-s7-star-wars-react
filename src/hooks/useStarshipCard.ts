@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { fetchStarshipById } from "../api/FetchStarshipById";
+import { fetchStarshipById } from "../services/FetchStarshipById";
 import { Starship } from "../types/Interfaces";
 
 export const useStarshipCard = (id: string | undefined) => {
