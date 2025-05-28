@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ScaleLoader from "react-spinners/ScaleLoader";
@@ -9,7 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ShipDetailsPage from "./pages/ShipDetailsPage";
 import ErrorPage from "./pages/ErrorPage";
 
-const StarshipsList = lazy(() => import("./components/ships/StarshipsList/starshipsList"));
+const StarshipsList = lazy(() => import("./components/ships/starshipsList/starshipsList.tsx"));
 const Login = lazy(() => import("./components/auth/SignIn"));
 
 function App() {
